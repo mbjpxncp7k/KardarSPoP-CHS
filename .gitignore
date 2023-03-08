@@ -1,0 +1,16 @@
+.vscode/
+
+*/*.toc
+*/*.xdv
+*/*.aux
+*/*.out
+*/*.log
+*/*.bbl
+*/*.blg
+*/*.brf
+*/*.adx
+*/*.fls
+*/*.fdb_latexmk
+*/*.run.xml
+*/*.synctex.gz
+*/chapters/*.aux

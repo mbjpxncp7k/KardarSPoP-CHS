@@ -1,0 +1,16 @@
+\newcounter{BackrefHyperFootnoteCounter}
+\makeatletter
+\LetLtxMacro{\mfnbr@old@footnote}{\footnote}
+\let\mfnbr@old@makefnmark=\@makefnmark
+\let\mfnbr@old@makefootmark=\makefootmark
+\def\footnote{%
+	\stepcounter{BackrefHyperFootnoteCounter}%
+    \edef\BackrefFootnoteTag{mfnbr:\theBackrefHyperFootnoteCounter}%
+	\mfnbr@old@footnote%
+}
+\def\@makefnmark{%
+	\mfnbr@old@makefnmark%
+	\label{\BackrefFootnoteTag}%
+}
+\def\makefootmark{\hyperref[\BackrefFootnoteTag]{\mfnbr@old@makefootmark}}
+\makeatother

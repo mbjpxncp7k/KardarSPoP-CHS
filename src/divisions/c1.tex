@@ -1,0 +1,231 @@
+\chapter{热力学}
+
+\section{导言}
+
+	\quoteParagraph{\termIntroduce{热力学}是一种对热平衡下的宏观系统的性质的唯象描述。}
+
+	设想你是一个后牛顿时代的物理学家，正试图理解如一个容器中的气体这样的简单系统的行为。你会如何推进工作？
+	一个成果的物理理论的原型是经典力学，它从简单的基本定律出发并应用微积分这一数学装置来描述了错综复杂的运动。
+	类比地，你可能如下以如下的方式推进：
+
+	\begin{itemize}
+		\item 尽可能地理想化所要研究的\termIntroduce{系统}（正如点粒子模型那样）。这系统上的机械功的概念我们当然是熟悉的，但它可能会由于热交换而变得很复杂。对其的对策首先是要检查所谓\termIntroduce{封闭系统}，它由不容许与环境的任何热交换的所谓\termIntroduce{绝热壁}所隔离。当然，我们最终也需要研究能通过\termIntroduce{透热壁}来与外部世界交换热量的\termIntroduce{开放系统}。
+		\item 由于点粒子的状态是由其坐标（和动量）量化的，宏观系统的性质也可以由一定数量的\termIntroduce{热力学坐标}或\termIntroduce{状态函数}来描述。其中我们最熟悉的坐标是与机械功相关的那些，如（流体的）压强与体积、（薄膜的）表面张力与面积、（线的）张力与长度、（电介质的）电场与极化等。我们还将会看到，还有额外的一些与机械功无关的状态函数。这些状态函数仅当系统处于所谓\termIntroduce{平衡态}时才是良定义的，平衡状态的性质在我们所关心的时间尺度（观测时间）上没有\shortRadicalTranslation{可见}{appreciably}的变化。由于对\bracketedText{观测时间}这一概念的依赖，\bracketedText{平衡态}的概念是有些主观的。例如，窗玻璃在几十年内作为固体处于平衡状态，但在几千年的时间尺度上却像流体一样流动。 在另一个极端，考虑大爆炸最初几分钟内的早期宇宙中的物质与辐射之间的平衡是完全合理的。
+		\item 最后，状态函数之间的关系由热力学定律来描述。作为一种唯象描述，这些定律基于大量的经验观察。然后一个\shortRadicalTranslation{融贯}{coherent}的逻辑和数学结构便在这些观察的基础上构筑而成，进而带来各种有用的概念以及各种物理量间的可检验的关系。热力学定律只能由更基本的（微观的）自然理论来证明。例如，统计力学试图从粒子集合的演化的经典的或量子的\shortRadicalTranslation{动力学}{mechanical}方程出发来取得这些定律。
+	\end{itemize}
+
+\section{第零定律}
+
+	热力学第零定律描述了热平衡的传递性这一本质特性。它说：
+
+	\quoteParagraph{%
+		若两个系统A与B都分别与第三个系统C\longRadicalTranslation{处于共同平衡}{in equilibrium with}，则它们两个也处于共同平衡。%
+	}
+
+	尽管第零定律表面上很简单，但它蕴含了一个重要的状态函数——\termIntroduce{经验温度}\(\Theta\)——的存在性，处于共同平衡的各系统具有相同的温度。
+
+	% Graphics
+
+	令系统\(A,B,C\)的平衡态由\(\{A_1,A_2,\cdots\},\{B_1,B_2,\cdots\},\{C_1,C_2,\cdots\}\)分别描述。$A$与$C$处于共同平衡的假定将蕴含了一个$A,C$的坐标之间的约束，即，\(A_1\)的改变必然伴随着\(\{A_2,\cdots;C_1,C_2,\cdots\}\)的某些改变，才能得以维持\(A,C\)的共同平衡。
+
+	将此约束记作
+	\begin{equation}
+		f_{AC}(A_1,A_2,\cdots;C_1,C_2,\cdots)=0.
+	\end{equation}
+	$B,C$的平衡蕴含着一个类似的约束
+	\begin{equation}
+		f_{BC}(B_1,B_2,\cdots;C_1,C_2,\cdots)=0.
+	\end{equation}
+	注意到我们假定每个系统各自处于自身的力学平衡中。如果它们也被允许有某种共同平衡，那么我们就需要一些附加条件（如，常压）来描述它们的\shortRadicalTranslation{联合力学平衡}{joint mechanical equilibrium}。
+
+	我们显然能以多种不同方式表述上述约束书。例如，我们可以研究\(C_1\)的由其他参量的变化引起的变化。这等价于对上述每个方程求解\(C_1\)而得到\footnote{从纯数学的角度来看，不一定可以从任意的约束条件中解出\(C_1\)。然而，由于约束描述真实物理参量的要求清楚地表明我们可以取得作为其余参量的函数的\(C_1\)。}
+	\begin{equation}
+		\begin{aligned}
+			C_1=F_{AC}(A_1,A_2,\cdots;C_2,\cdots),\\
+			C_1=F_{BC}(B_1,B_2,\cdots;C_2,\cdots).
+		\end{aligned}
+	\end{equation}
+	因此如果\(C\)分别与$A,B$处于共同平衡，我们就必然有
+	\begin{equation}\label{eq:1.4}
+		F_{AC}(A_1,A_2,\cdots;C_2,\cdots)=F_{BC}(B_1,B_2,\cdots;C_2,\cdots).
+	\end{equation}
+	然而，根据第零定律，在\(A,B\)之间还有一个平衡，它蕴含了约束
+	\begin{equation}\label{eq:1.5}
+		f_{AB}(A_1,A_2,\cdots;B_1,B_2,\cdots)=0.
+	\end{equation}
+	我们可以选择任意一组满足上式的参量\(\{A, B\}\)代入\ref{eq:1.4}式。由此产生的等式必须完全独立于该等式中的任何一组变量\(\{C\}\)而保持成立。然后我们可以改变这些参数，沿着\ref{eq:1.5}式所约束的流形移动，而这时无论$C$的状态如何，\ref{eq:1.4}式都将保持有效。因此，必然可以消去$C$的坐标来简化\ref{eq:1.4}式。或者说，我们可以任意选取一个固定的参数集$C$，并从此忽略它们，将\(A,B\)的平衡条件\ref{eq:1.5}式简化为
+	\begin{equation}
+		\Theta_A(A_1,A_2,\cdots)=\Theta_B(B_1,B_2,\cdots),
+	\end{equation}
+	也就是说，平衡由一个记作$\Theta$的热力学坐标的函数来标识。
+	这个函数指定了状态方程，而$A$的等温线由\(\Theta_A(A_1,A_2,\cdots)=\Theta\)这一条件给出。此时\(\Theta\)有许多可能的选法，不过我们这里所要强调的是约束着热平衡中的各系统的参量的函数的存在性。
+
+	\(\Theta\)这个量与力学系统中的力有一种相似性。
+	考虑两个可以互相做功的一维系统，比如两个连接起来的弹簧。
+	当每个物体施加在另一个物体上的力相等时，就会达到平衡。
+	（当然，不同于温度这个标量，作为矢量的力有一个方向，我们忽略了这里的一些复杂事项。气体活塞的压强会是一个更适当的类比对象。）
+	多个这样的物体之间的力学平衡同样具有传递性，我们可以从后者出发来推断一个机械力的存在。
+
+	作为一个例子，我们考虑如下三个系统
+	\begin{enumerate}[label=(\Alph*)]
+		\item 长度为$L$、张力为$F$的绳索
+		\item 磁场$B$中的磁化强度为$M$的顺磁体
+		\item 压强$P$下的体积为$V$的气体
+	\end{enumerate}
+
+	% Graphics
+
+	观察表明若这些系统处于平衡中，它们的坐标就会满足下列约束：
+	\begin{equation}
+		\begin{aligned}
+			\left(P+\frac{a}{V^2}\right)(V-b)(L-L_0)-c[F-K(L-L_0)]=0,&\\
+			\left(P+\frac{a}{V^2}\right)(V-b)M-dB=0.&
+		\end{aligned}
+	\end{equation}
+	这两个条件可以组织成三个经验温度函数：
+	\begin{equation}
+		\Theta\propto\left(P+\frac{a}{V^2}\right)(V-b)=c\left(\frac{F}{L-L_0}-K\right)=d\frac{B}{M}.
+	\end{equation}
+	应注意到是第零定律严格地限制了描述两体平衡的约束方程的形式。若是一个任意的函数，是未必能组织成两个经验温度函数间的等式的。
+
+	我在上例中选取的约束实际上复现了本书后面将遇到并讨论的三个著名的状态方程。他们有一个我们更熟悉的形式，写作：
+	\begin{equation}
+		\left\{\begin{aligned}
+			(P+a/V^2)(V-b)=Nk_BT&\qquad\text{（\humanNameTranslation{范德瓦耳斯}{van der Waals}气体）}\\
+			M=(N\mu_B^2B)/(3k_BT)&\qquad\text{（\humanNameTranslation{居里}{Curie}顺磁体）}\\
+			F=(K+DT)(L-L_0)&\qquad\text{（弹性体的\humanNameTranslation{胡克}{Hooke}定律）}
+		\end{aligned}\right..
+	\end{equation}
+	注意到我们用到了\humanNameTranslation{开尔文}{Kelvin}温度$T$的符号，而非更一般的经验温度$\Theta$。这一具体温标可以根据理想气体的性质构造出来。
+
+	\termIntroduce{理想气体温标}：虽然第零定律仅表明了等温线的存在，但要在现阶段建立实用的温标，一个参照的系统是必要的。\termIntroduce{理想气体}在热力学中占有重要地位并提供这个必要的参照。经验观察表明，对于任一种充分稀薄的气体，压强和体积的乘积沿等温线不变。
+	所谓理想气体指的就是真实气体的这一\textit{稀薄}极限；而理想气体温度正比于这一乘积。
+	该常值比例系数由水的固液气三相点的温度为参照来确定，该温度在1954年的第10届的国际计量大会上被设为\(273.16K\)。
+	使用一稀薄（也就是说如$P\to0$那样）的气体作为温度计，一个系统的温度便可得自
+	\begin{equation}
+		T(K)\equiv 273.16\times\left(\lim_{P\to0}(PV)_{\text{系统}}/\lim_{P\to0}(PV)_{\text{冰-水-蒸汽}}\right).
+	\end{equation}
+
+\section{第一定律}
+
+	在处理简单的力学系统时，能量守恒是一个重要原则。例如，一个粒子的位置可以因外部功的势而改变，而这变化又关联于势能的变化。实验观测表明，若系统是\termIntroduce{适当隔离}了的——也就是说如果唯一的能量来源是机械的，就有一条类似的原理在宏观物体层面起效。我们将对这些观测结果使用如下的表述：
+
+	\quoteParagraph{%
+		改变绝热孤立系统状态所需的功的数量仅取决于初态和末态，而不依赖于做功的方式或系统所经历的中间阶段。%
+	}
+
+	% Graphics
+
+	对于在势中运动的粒子，所需的功可用于描绘势能的\shortRadicalTranslation{地形}{landscape}\translationNote{指状态集到实数的一个映射\(f:\mathbf X\to\mathbb R\)。}。类似地，对于热力学系统我们可以构造另一个状态函数，即内能\(E(\mathbf X)\)。\(E(\mathbf X)\)可以从由初态\(\mathbf X_i\)到末态\(\mathbf X_f\)的\termIntroduce{绝热}转换所需的功 W 中根据
+	\begin{equation}
+		\Delta W=E(\mathbf X_f)-E(\mathbf X_i)
+	\end{equation}
+	来确定（至多相差一个常数）。
+
+	另一组观察表明，一旦去除绝热约束，功的量值就不再等于内能的变化量。差值\(\Delta Q=\Delta E−\Delta W\)定义为系统从其环境中吸收的热量。显然，在这样的转换中，\(\Delta Q, \Delta W\)无法单独构成状态函数，因为它们取决于如做功方式这样的外部因素，而不仅依赖于末态。
+	为了强调这一点，对于一个\shortRadicalTranslation{无穷小}{differential}的转换，我们这样写道：
+	\begin{equation}
+		\ddbar Q=\dd E-\ddbar W,
+	\end{equation}
+	其中\(\dd E=\sum_i\pd_iE\dd X_i\)可以通过微分得到，\(\ddbar Q,\ddbar W\)则一般不能。
+	另外应注意我们的正负符号约定，功和热的符号表示增加到系统中的能量，而不是反过来。
+	因此，热力学第一定律指出，要改变系统的状态，能量须取定值——而它可以是机械功或热量的形式。
+	这也可以被视为一种定义和量化热量交换的方法。
+
+	\termIntroduce{准静态}变换是一种进行得足够慢从而系统总是处于平衡状态的变换。因此，在过程的任何阶段，系统的热力学坐标都存在且原则上可计算。对于此类变换，对系统所做的功（与系统所做的功大小相等但符号相反）可能与这些坐标的变化有关。
+	作为一个力学上的例子，现在考虑一个弹簧或橡皮筋的拉伸。
+	为了将系统的势能构建为其长度$L$的函数，我们可以足够慢地拉动弹簧，以便在每个阶段外力都与弹簧的内力$F$相匹配。
+	对于这样的准静态过程，弹簧势能的变化为\(\int F\dd L\)。如果对弹簧的牵拉较猛，一些外部功将转化为动能，并最终随弹簧的逐渐休止而耗尽。
+
+	我们可以从上面的例子出发来推广，将状态函数\(\{\mathbf X\}\)分割为一组\termIntroduce{广义位移}\(\{\mathbf x\}\)以及与其共轭的\termIntroduce{广义力}\(\{\mathbf J\}\)，使得它们对于无穷小的准静态变换满足\footnote{我用符号\(\{\mathbf J\}\)而非\(\{\mathbf F\}\)来指示力，从而将后者留给自由能。我希望读者不会将其同（在本书中很少出现的）电流（有时也用\(\{\mathbf J\}\)来指示）混淆。}
+	\begin{equation}
+		\ddbar W=\sum_iJ_i\dd x_i.
+	\end{equation}
+
+	\begin{table}[H]\label{tab:1.1}
+		\centering\begin{tabularx}{\textwidth}{XX>{\raggedleft\arraybackslash}XX>{\raggedleft\arraybackslash}X}
+			\toprule\midrule
+			系统 & 力 & & 位移 & \\\midrule
+			绳索 & 张力 & $F$ & 长度 & $L$\\
+			薄膜 & 表面张力 & $F$ & 面积 & $A$\\
+			流体 & 压强 & $-P$ & 体积 & $V$\\
+			磁体 & 张力 & $H$ & 磁化强度 & $M$\\
+			电介质 & 张力 & $E$ & 极化强度 & $P$\\
+			化学反应 & 化学势 & $\mu$ & 粒子数 & $N$\\
+			\midrule\bottomrule
+		\end{tabularx}
+		\caption{广义力与广义位移}
+	\end{table}
+
+	表\ref{tab:1.1}给出了这样的共轭坐标的一些常见例子。
+	注意我们约定压强$P$是由系统对壁施加的力（而非系统所受到的、方向与此相反得到力）来计算的。
+	流体静力学功的负号就是从这里来的。
+
+	这些位移通常是\termIntroduce{广延量}，即与系统\shortRadicalTranslation{大小}{size}成正比，而力是\termIntroduce{强度量}，与大小无关。后者是衡量平衡态的指标；例如，压强在处于平衡态的气体中（在没有外部势的情况下）是均匀的，并且互相接触且平衡的两团气体的压强是相等的。如在第零定律的有关讨论所说的那样，温度在热交换问题中起着类似的作用。
+	那么是否有与温度对应的位移？如果有的话是什么？
+	这个问题将在随后的章节中得到解答。
+
+	\termIntroduce{理想气体}：我们在讨论第零定律时就能注意到，理想气体的状态方程具有特别简单的形式，即\(PV\propto T\)。理想气体的内能也采用非常简单的形式，从\termIntroduce{\humanNameTranslation{焦耳}{Joule}自由膨胀实验}能观察到这一点：
+	测量表明，如果理想气体绝热地（但未必准静态地）膨胀，体积从\(V_i\)变为\(V_f\)，而初始温度和最终温度相同。由于该转换是绝热的\(\Delta Q=0\)，并且系统没有外部做功 \(\Delta W=0\)，因此气体的内能没有变化。
+	由于气体的压强和体积在此过程中发生变化而温度却没有变化，因此我们得出内能仅取决于温度的结论，即\(E(V,T)=E(T)\)。理想气体的这一性质实际上是其状态方程形式的结果，这一点将应在本章末的一个习题中得到证明。
+
+	% Graphics
+
+	\termIntroduce{响应函数}是刻画系统宏观行为特征的惯常方法。它们是借助外部\shortRadicalTranslation{探头}{probe}而从热力学坐标的变化来在实验上测得的。一些常见的响应函数如下。
+
+	\termIntroduce{热容}是得自向系统输入热量时的温度变化量。由于热量不是状态函数，因此还必须指定输热的路径。例如，对于气体我们可以计算在恒定体积或恒定压强下的热容，分别表示为\(C_V=\ddbar Q/\dd T|_V, C_P=\ddbar Q/\dd T|_P\)。后者会更大，因为一些热量在体积变化时的做功中消耗掉了：
+
+	\begin{equation}\label{eq:1.14}
+		\begin{aligned}
+			&C_V=\left.\frac{\ddbar Q}{\dd T}\right|_V=\left.\frac{\dd E-\ddbar W}{\dd T}\right|_V=\left.\frac{\dd E+P\dd V}{\dd T}\right|_V=\left.\frac{\pd E}{\pd T}\right|_V,\\
+			&C_P=\left.\frac{\ddbar Q}{\dd T}\right|_P=\left.\frac{\dd E-\ddbar W}{\dd T}\right|_P=\left.\frac{\dd E+P\dd V}{\dd T}\right|_P=\left.\frac{\pd E}{\pd T}\right|_P+P\left.\frac{\pd V}{\pd T}\right|_P.
+		\end{aligned}
+	\end{equation}
+	
+	\termIntroduce{力常数}所测量的是位移对力的（无穷小）比值，是对弹簧常量的推广。力常数的例子如等温压缩率\(\kappa_T=-\pd V/\pd P|_T/V\)、磁化率\(\chi_T=\pd M/\pd B|_T/V\)。从理想气体状态方程\(PV\propto T\)中，我们可以得到\(\kappa_T=1/P\)。
+
+	\termIntroduce{热响应}探测的是热力学坐标由温度引起的变化量。例如，气体膨胀率由\(\alpha_P=\pd V/\pd T|_P/V\)给出，对于理想气体而言它等于\(1/T\)。
+
+	由于理想气体的内能只取决于它的温度，\(\thermoRatioI{E}{T}{V}=\thermoRatioI{E}{T}{P}=\dd E/\dd T\)，从而\ref{eq:1.14}式简化为
+	\begin{equation}
+		C_P-C_V=P\thermoRatio{V}{T}{P}=PV\alpha_P=\frac{PV}{T}\equiv Nk_B.
+	\end{equation}
+	最后一个等号来自广延性：对于给定量的理想气体，常量\(PV/T\)正比于气体中的粒子数$N$；该比值即是\humanNameTranslation{玻尔兹曼}{Boltzmann}常量，其值为\(k_B\approx1.4\times10^{−23}JK^{−1}\)。
+
+\section{第二定律}
+
+	19世纪的热力学科学发展\shortRadicalTranslation{在实践上的}{practical}推动力是热机的出现。在工业革命期间，对机器做功的依赖的增加要求我们更好地理解热能到功的转化的基本原理。了解对引擎效率等的实用的考量如何为我们带来了熵等抽象概念是非常有趣的。
+
+	一个理想化的\termIntroduce{热机}的工作过程是：从热源（例如煤火）吸收一定量的热量\(Q_H\)，然后将其中一部分转化为功$W$，并将剩余的热量\(Q_C\)排放到散热器（例如大气）中。热机的效率由下式计算
+	\begin{equation}
+		\eta=\frac{W}{Q_H}=\frac{Q_H-Q_C}{Q_H}\leq1.
+	\end{equation}
+	一个理想化的\termIntroduce{\shortRadicalTranslation{制冷机}{refrigerator}}像是一台反向运作的引擎：它借助功$W$来从低温系统提取热量$Q_C$，而在更高的温度下排放热量$Q_H$。我们可以类似地为制冷剂的性能而如下地定义一个品质因数的量
+	\begin{equation}
+		\omega=\frac{Q_C}{W}=\frac{Q_C}{Q_H-Q_C}
+	\end{equation}
+
+	% Graphics
+
+	第一定律排除了所谓的\termIntroduce{第一类永动机}，即无需消耗任何能量即可产生功的机器。然而，通过将水转化为冰来产生功的热机并不违背能量守恒。这样的\termIntroduce{第二类永动机}固然能够解决世界能源问题，但它被热力学第二定律排除了。热力学第二定律的本质就是\bracketedText{热流的自然方向是从较热的物体流向较冷的物体结果}这一观察。第二定律有许多不同的表述，例如下面两个：
+
+	\paragraph{\humanNameTranslation{开尔文}{Kelvin}表述}任何一个将热量完全转化为功而无其他影响的过程都是不可能的。
+
+	\paragraph{\humanNameTranslation{克劳修斯}{Clausius}表述}任何一个使低温物体传热到高温物体而无其他影响的过程都是不可能的。
+
+	第一个表述排除了完美的发动机，而第二个表述排除了完美的制冷剂。既然我们将使用这两个表述，我们首先证明它们是等价的。对\humanNameTranslation{开尔文}{Kelvin}与\humanNameTranslation{克劳修斯}{Clausius}表述的等价性的证明是通过指出若其中一个被违反，另一个也必被违反。
+
+	\begin{enumerate}[label=(\alph*)]
+		\item 让我们假设有一台机器能将热量$Q$从较冷的区域带到较热的区域而违背\humanNameTranslation{克劳修斯}{Clausius}表述。现在考虑一台运作于这两个区域间的热机，它从较热的区域吸收热量$Q_H$而于较冷的散热区域排放$Q_C$。它们组合而来的系统从热源获取了\(Q_H-Q\)，产生的功为\(Q_H-Q_C\)，在散热区域排放\(Q_C-Q\)。如果我们调整热机的输出量而使得\(Q_C=Q\)，那么\shortRadicalTranslation{最终}{net}得到的就是一台\(100\%\)效率的热机，这违反了\humanNameTranslation{开尔文}{Kelvin}表述。
+		% Graphics
+		\item 另一方面，现在假定一个机器能吸取热量$Q$而完全转化为功来违背\humanNameTranslation{开尔文}{Kelvin}表述。其输出的功可以用于驱动一台制冷机，而最终得以从低温物体像高温物体传热，从而违背\humanNameTranslation{克劳修斯}{Clausius}表述。
+		% Graphics
+	\end{enumerate}
+
+\section{\humanNameTranslation{卡诺}{Carnot}热机}
+\section{熵}
+\section{接近平衡态与热力学势}
+\section{一些有用的数学结果}
+\section{稳定性条件}
+\section{第三定律}
+\section*{习题}

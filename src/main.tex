@@ -1,0 +1,68 @@
+% !TEX program = xelatex
+\documentclass[
+	14pt,
+	oneside,
+	a4paper,
+	extrafontsizes
+	, draft
+]{memoir}
+%\tracingmacros=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%             Preamble                         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{metadata.tex}
+\input{packages.tex}
+\input{commands.tex}
+\input{style.tex}
+
+%%% Customize for users to produce various versions easily, WIP
+% \input{config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%             Frontmatter                      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\chapterstyle{main}
+
+\maketitle
+
+\frontmatter
+\clearpage
+\currentpdfbookmark{目录}{toc}
+\tableofcontents*
+
+\hypersetup{
+	linkcolor=blue
+}
+
+\input{divisions/preface.tex}
+
+\mainmatter
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%            Chapters                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\figurename}{图} % must be around here to work
+\renewcommand{\tablename}{表}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%            Chapter 1                         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{divisions/c1.tex}
+\input{divisions/c2.tex}
+\input{divisions/c3.tex}
+\input{divisions/c4.tex}
+\input{divisions/c5.tex}
+\input{divisions/c6.tex}
+\input{divisions/c7.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%             Backmatter                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backmatter
+
+\end{document}
+ 

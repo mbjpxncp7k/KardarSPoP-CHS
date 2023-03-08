@@ -1,0 +1,12 @@
+\ctexset{
+	chapter={
+		name={第,章},
+		format+=\raggedright
+	},
+	section={
+		format+=\raggedright
+	}
+}
+\renewcommand\chaptermark[1]{%
+	\markright{\CTEXifname{\CTEXthechapter\ }{}#1}%
+}

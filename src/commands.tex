@@ -1,0 +1,50 @@
+% \newcommand{\textunderline}[1]{%
+% 	\makebox{\underline{#1}}%
+% }
+
+% TODO: Design a switch to change its behavior.
+\newcommand*{\shortRadicalTranslation}[2]{%
+	\xspace#1(#2)\xspace%
+}
+
+\newcommand*{\longRadicalTranslation}[2]{%
+	\xspace\underline{#1}\footnote{译者注：原文为：「#2」。}\xspace%
+}
+
+\newcommand*{\humanNameTranslation}[2]{%
+	#2
+}
+
+\newcommand*{\translationNote}[1]{%
+	\footnote{译者注：#1}%
+}
+
+\def\termIntroduce{\textit}
+
+\newcommand*{\bracketedText}[1]{「#1」}
+
+% \makeatletter%
+% \gdef\termIntroduce#1{%
+% 	\let\saved@termIntroduce=\termIntroduce%
+% 	\let\termIntroduce=\textbf%
+% 	\textit{#1}%
+% 	\let\termIntroduce=\saved@termIntroduce%
+% }
+% \makeatother%
+
+%%% Should keep these definitions instead of drop them, we just switch between them.
+\makeatletter%
+\gdef\quoteParagraph#1{%
+	\let\saved@termIntroduce=\termIntroduce%
+	\let\termIntroduce=\textbf%
+	\textit{#1}%
+	\let\termIntroduce=\saved@termIntroduce%
+}
+\makeatother%
+
+\newcommand{\dd}{{\mathrm d}}
+\newcommand{\ddbar}{\mathchar '26 \mkern-11mu \mathrm d}
+\newcommand{\pd}{\partial}
+
+\newcommand{\thermoRatio}[3]{\left.\frac{\pd #1}{\pd #2}\right|_{#3}}
+\newcommand{\thermoRatioI}[3]{\pd #1/\pd #2|_{#3}}
