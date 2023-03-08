@@ -6,7 +6,6 @@
 	extrafontsizes
 	, draft
 ]{memoir}
-%\tracingmacros=1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%             Preamble                         %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,6 +13,7 @@
 \input{packages.tex}
 \input{commands.tex}
 \input{style.tex}
+\input{alias.tex}
 
 %%% Customize for users to produce various versions easily, WIP
 % \input{config.tex}
@@ -39,17 +39,12 @@
 
 \mainmatter
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%            Chapters                          %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\figurename}{图} % must be around here to work
 \renewcommand{\tablename}{表}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%            Chapter 1                         %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{divisions/c1.tex}
 \input{divisions/c2.tex}
 \input{divisions/c3.tex}

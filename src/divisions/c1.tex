@@ -91,12 +91,12 @@
 	我在上例中选取的约束实际上复现了本书后面将遇到并讨论的三个著名的状态方程。他们有一个我们更熟悉的形式，写作：
 	\begin{equation}
 		\left\{\begin{aligned}
-			(P+a/V^2)(V-b)=Nk_BT&\qquad\text{（\humanNameTranslation{范德瓦耳斯}{van der Waals}气体）}\\
+			(P+a/V^2)(V-b)=Nk_BT&\qquad\text{（{\vanDerWaals}气体）}\\
 			M=(N\mu_B^2B)/(3k_BT)&\qquad\text{（\humanNameTranslation{居里}{Curie}顺磁体）}\\
 			F=(K+DT)(L-L_0)&\qquad\text{（弹性体的\humanNameTranslation{胡克}{Hooke}定律）}
 		\end{aligned}\right..
 	\end{equation}
-	注意到我们用到了\humanNameTranslation{开尔文}{Kelvin}温度$T$的符号，而非更一般的经验温度$\Theta$。这一具体温标可以根据理想气体的性质构造出来。
+	注意到我们用到了温度$T$的符号，而非更一般的经验温度$\Theta$。这一具体温标可以根据理想气体的性质构造出来。
 
 	\termIntroduce{理想气体温标}：虽然第零定律仅表明了等温线的存在，但要在现阶段建立实用的温标，一个参照的系统是必要的。\termIntroduce{理想气体}在热力学中占有重要地位并提供这个必要的参照。经验观察表明，对于任一种充分稀薄的气体，压强和体积的乘积沿等温线不变。
 	所谓理想气体指的就是真实气体的这一\textit{稀薄}极限；而理想气体温度正比于这一乘积。
@@ -190,7 +190,7 @@
 	\begin{equation}
 		C_P-C_V=P\thermoRatio{V}{T}{P}=PV\alpha_P=\frac{PV}{T}\equiv Nk_B.
 	\end{equation}
-	最后一个等号来自广延性：对于给定量的理想气体，常量\(PV/T\)正比于气体中的粒子数$N$；该比值即是\humanNameTranslation{玻尔兹曼}{Boltzmann}常量，其值为\(k_B\approx1.4\times10^{−23}JK^{−1}\)。
+	最后一个等号来自广延性：对于给定量的理想气体，常量\(PV/T\)正比于气体中的粒子数$N$；该比值即是{\boltzmann}常量，其值为\(k_B\approx1.4\times10^{−23}JK^{−1}\)。
 
 \section{第二定律}
 
@@ -209,21 +209,96 @@
 
 	第一定律排除了所谓的\termIntroduce{第一类永动机}，即无需消耗任何能量即可产生功的机器。然而，通过将水转化为冰来产生功的热机并不违背能量守恒。这样的\termIntroduce{第二类永动机}固然能够解决世界能源问题，但它被热力学第二定律排除了。热力学第二定律的本质就是\bracketedText{热流的自然方向是从较热的物体流向较冷的物体结果}这一观察。第二定律有许多不同的表述，例如下面两个：
 
-	\paragraph{\humanNameTranslation{开尔文}{Kelvin}表述}任何一个将热量完全转化为功而无其他影响的过程都是不可能的。
+	\termDefinition{{\kelvin}表述}{任何一个将热量完全转化为功而无其他影响的过程都是不可能的。}
 
-	\paragraph{\humanNameTranslation{克劳修斯}{Clausius}表述}任何一个使低温物体传热到高温物体而无其他影响的过程都是不可能的。
+	\termDefinition{{\clausius}表述}{任何一个使低温物体传热到高温物体而无其他影响的过程都是不可能的。}
 
-	第一个表述排除了完美的发动机，而第二个表述排除了完美的制冷剂。既然我们将使用这两个表述，我们首先证明它们是等价的。对\humanNameTranslation{开尔文}{Kelvin}与\humanNameTranslation{克劳修斯}{Clausius}表述的等价性的证明是通过指出若其中一个被违反，另一个也必被违反。
+	第一个表述排除了完美的发动机，而第二个表述排除了完美的制冷剂。既然我们将使用这两个表述，我们首先证明它们是等价的。对{\kelvin}与{\clausius}表述的等价性的证明是通过指出若其中一个被违反，另一个也必被违反。
 
 	\begin{enumerate}[label=(\alph*)]
-		\item 让我们假设有一台机器能将热量$Q$从较冷的区域带到较热的区域而违背\humanNameTranslation{克劳修斯}{Clausius}表述。现在考虑一台运作于这两个区域间的热机，它从较热的区域吸收热量$Q_H$而于较冷的散热区域排放$Q_C$。它们组合而来的系统从热源获取了\(Q_H-Q\)，产生的功为\(Q_H-Q_C\)，在散热区域排放\(Q_C-Q\)。如果我们调整热机的输出量而使得\(Q_C=Q\)，那么\shortRadicalTranslation{最终}{net}得到的就是一台\(100\%\)效率的热机，这违反了\humanNameTranslation{开尔文}{Kelvin}表述。
+		\item 让我们假设有一台机器能将热量$Q$从较冷的区域带到较热的区域而违背{\clausius}表述。现在考虑一台运作于这两个区域间的热机，它从较热的区域吸收热量$Q_H$而于较冷的散热区域排放$Q_C$。它们组合而来的系统从热源获取了\(Q_H-Q\)，产生的功为\(Q_H-Q_C\)，在散热区域排放\(Q_C-Q\)。如果我们调整热机的输出量而使得\(Q_C=Q\)，那么\shortRadicalTranslation{最终}{net}得到的就是一台\(100\%\)效率的热机，这违反了{\kelvin}表述。
 		% Graphics
-		\item 另一方面，现在假定一个机器能吸取热量$Q$而完全转化为功来违背\humanNameTranslation{开尔文}{Kelvin}表述。其输出的功可以用于驱动一台制冷机，而最终得以从低温物体像高温物体传热，从而违背\humanNameTranslation{克劳修斯}{Clausius}表述。
+		\item 另一方面，现在假定一个机器能吸取热量$Q$而完全转化为功来违背{\kelvin}表述。其输出的功可以用于驱动一台制冷机，而最终得以从低温物体像高温物体传热，从而违背{\clausius}表述。
 		% Graphics
 	\end{enumerate}
 
-\section{\humanNameTranslation{卡诺}{Carnot}热机}
+\section{{\carnot}热机}
+	\quoteParagraph{{\carnot}热机是一种可逆的、在一个循环中运行、且其所有热交换都在源温度$T_H$和散热温度$T_C$下进行的热机。}
+
+	\termIntroduce{可逆}过程指的是可以通过简单地颠倒其输入和输出来\shortRadicalTranslation{在时间上}{in time}逆转的过程。它是力学中的无摩擦运动在热力学上的等价物。由于时间可逆性意味着平衡，因此可逆转换必然是准静态的，但反之则未必（例如，可能由于摩擦而存在能量耗散）。\termIntroduce{循环}运行的热机在过程结束时总会回到其原始内部状态。{\carnot}热机的标志性特征在于它与周围环境的热交换仅在两个温度下进行。
+
+	第零定律允许我们为这些热交换选择在温度$T_H$和$T_C$的两条等温线。要完成{\carnot}循环，我们须由坐标空间中的可逆绝热路径来把这两条等温线连接起来。由于热量不是状态函数，我们一般不知道如何构造这样的路径。好在现在我们已有足够的信息来构建一个使用理想气体作为其内部工作物质的{\carnot}热机。出于演示的目的，我们现在计算具有内能
+	\begin{equation*}
+		E=\frac{3}{2}Nk_BT=\frac{3}{2}PV,
+	\end{equation*}
+	的单原子理想气体的绝热线。
+
+	沿着一条准静态路径，我们有
+	\begin{equation}
+		\ddbar Q=\dd E-\ddbar W=\dd\left(\frac{3}{2}PV\right)+P\dd V=\frac{5}{2}P\dd V+\frac{3}{2}V\dd P.
+	\end{equation}
+
+	由绝热条件\(\ddbar Q=0\)，可给出一条路径
+	\begin{equation}
+		\frac{\dd P}{P}+\frac{5}{3}\frac{\dd V}{V}=0,
+		\quad\implies\quad
+		PV^\gamma=\text{常量},
+	\end{equation}
+	其中\(\gamma=5/3\)。
+
+	% Graphics
+
+	绝热线明显不同于等温线，我们可以选择两条这样的曲线来相交于我们的等温线，从而完成卡诺循环。\(E\propto T\)的假定不是必需的，在本章末尾提供的其中一个问题中，你将为一般性的\(E(T)\)构造绝热线。实际上，对于任一\(E(J,x)\)的双参数系统，类似的构造也都是可能的。
+
+	\termDefinition{{\carnot}定理}{%
+		任何工作于两个（温度为$T_H,T_C$的）热库间的热机都不能具有比其间的{\carnot}热机更高的效率。
+	}
+
+	由于{\carnot}热机是可逆的，它可以反向运作而成为一个制冷机。现在用非{\carnot}热机来逆向驱动{\carnot}热机。
+	我们分别用$Q_H,Q_C$和$Q'_H,Q'_C$来表示非{\carnot}热机和{\carnot}热机的热交换。两个热机的总效果是将值为\(Q_H-Q'_H=Q_C-Q'_C\)的热量从$T_H$传递到$T_C$。根据{\clausius}表述，传热的量不能为负，即\(Q_H\geq Q'_H\)。由于此过程中所涉及的功$W$是等值的，我们得知
+	\begin{equation}
+		\frac{W}{Q_H}\leq\frac{W}{Q'_H},
+		\quad\implies\quad
+		\eta_{\text{\carnot}}\geq\eta_{\text{非\carnot}}.
+	\end{equation}
+
+	% Graphics
+
+	\corollaryParagraph{}{%
+		由于可逆\carnot 热机能够逆转地驱动自身，所以它们有着同一个\termIntroduce{普遍}效率\(\eta(T_H,T_C)\)。%
+	}
+
+	热力学温标：如前所述，使用理想气体（或任何其他双参数系统）作为工作物质来构造\carnot 热机至少在理论上是可能的。我们现在已知晓，无论用材、设计和构造如何，所有此类循环和可逆热机都具有相同的最大理论效率。由于此最大效率仅取决于两个温度，因此它可用于构造一个温标。这种温标具有独立于材料（例如，理想气体）性质的迷人性质。
+	要构造这样一个尺度，我们首先需对\(\eta(T_H,T_C)\)的形式得到一些限制。考虑两个串联运行的\carnot 热机，其一运行于温度$T_1$和$T_2$间，另一个则在$T_2,T_3$（\(T_1>T_2>T_3\)）间。分别用\(Q_1,Q_2,W_{12}\)和\(Q_2,Q_3,W_{23}\)来表示两个热机的热交换和功输出。注意，第一个热机排放的热量由第二个热机吸收，因此总效果即是另一个\carnot 热机（因为每个组件都是可逆的），其热交换为\(Q_1,Q_3\)、功输出为\(W_{13}=W_{12}+W_{23}\)。
+
+	% Graphics
+
+	使用普遍效率，可给出下式来将三个热交换量联系起来
+	\begin{equation*}
+		\left\{
+			\begin{aligned}
+				Q_2=Q_1-W_{12}=Q_1[1-\eta(T_1,T_2)],\\
+				Q_3=Q_2-W_{23}=Q_2[1-\eta(T_2,T_3)]=Q_1[1-\eta(T_1,T_2)][1-\eta(T_2,T_3)],\\
+				Q_3=Q_1-W_{13}=Q_1[1-\eta(T_1,T_3)].
+			\end{aligned}
+		\right.
+	\end{equation*}
+	比较后两条表达式可知
+	\begin{equation}
+		Q_1[1-\eta(T_1,T_3)]=Q_1[1-\eta(T_1,T_2)][1-\eta(T_2,T_3)].
+	\end{equation}
+	这一性质意味着\(1-\eta(T_1,T_2)\)可写为一个比值的形式\(f(T_2)/f(T_1)\)，我们约定其为\(T_2/T_1\)，也就是说，
+	\begin{equation}\label{eq:1.22}
+		1-\eta(T_1,T_2)=\frac{Q_2}{Q_1}\equiv\frac{T_2}{T_1},
+		\quad\implies\quad
+		\eta(T_H,T_C)=\frac{T_H-T_C}{T_H}.
+	\end{equation}
+
+	\ref{eq:1.22}式将温度定义到了至多相差一个比例常量的程度，我们再次通过选择水、冰和蒸汽的三相点为$273.16K$来确定这个常量。目前为止，我们已经交替地使用了符号$\Theta$和$T$。事实上，借由完全气体的\carnot 循环，可以证明（见习题）理想气体温标与热力学温标等价。热力学温标在实用的立场看来明显没什么用；它的优势是概念性的，因为它不依赖于具体物质的性质。所有热力学温度都是正的，因为据\ref{eq:1.22}可知从温度$T$提取的热量正比于$T$。若在负温度存在，则在负温度和正温度之间运行的热机将同时从两个热库中提取热量并将其总和完全转化为功，而这违反第二定律的\kelvin 表述。
+
 \section{熵}
+	
+
 \section{接近平衡态与热力学势}
 \section{一些有用的数学结果}
 \section{稳定性条件}
