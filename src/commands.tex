@@ -1,6 +1,4 @@
-% \newcommand{\textunderline}[1]{%
-% 	\makebox{\underline{#1}}%
-% }
+\def\emph{\textbf}
 
 % TODO: Design a switch to change its behavior.
 \newcommand*{\shortRadicalTranslation}[2]{%
@@ -8,7 +6,7 @@
 }
 
 \newcommand*{\longRadicalTranslation}[2]{%
-	\xspace\underline{#1}\footnote{译者注：原文为：「#2」。}\xspace%
+	\xspace\CJKunderline*{#1}\footnote{译者注：原文为：「#2」。}\xspace%
 }
 
 \newcommand*{\humanNameTranslation}[2]{%
@@ -23,6 +21,7 @@
 
 \newcommand{\termDefinition}[2]{\paragraph{#1}#2}
 \newcommand{\corollaryParagraph}[2]{\paragraph{推论}#2}
+\newcommand{\theoremParagraph}[2]{\paragraph{#1}#2}
 
 \newcommand*{\bracketedText}[1]{「#1」}
 

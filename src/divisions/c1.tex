@@ -297,7 +297,69 @@
 	\ref{eq:1.22}式将温度定义到了至多相差一个比例常量的程度，我们再次通过选择水、冰和蒸汽的三相点为$273.16K$来确定这个常量。目前为止，我们已经交替地使用了符号$\Theta$和$T$。事实上，借由完全气体的\carnot 循环，可以证明（见习题）理想气体温标与热力学温标等价。热力学温标在实用的立场看来明显没什么用；它的优势是概念性的，因为它不依赖于具体物质的性质。所有热力学温度都是正的，因为据\ref{eq:1.22}可知从温度$T$提取的热量正比于$T$。若在负温度存在，则在负温度和正温度之间运行的热机将同时从两个热库中提取热量并将其总和完全转化为功，而这违反第二定律的\kelvin 表述。
 
 \section{熵}
-	
+	为了最终能构造出与温度共轭的状态函数，我们求助于以下定理：
+
+	\theoremParagraph{\clausius 定理}{%
+		对任何循环\shortRadicalTranslation{过程}{transformation}（无论可逆与否），都有\(\oint\ddbar Q/T\leq 0\)，其中\(\ddbar Q\)是在温度\(T\)下向系统供给的热量。%
+	}
+
+	将循环细分为一系列无穷小的过程，在这些过程中，系统以热\(\ddbar Q\)和功\(\ddbar W\)的形式接收能量输入。在各个时间区间，系统不必处于平衡状态。将系统的所有热交换导向\carnot 热机的一个端口，而热机在另一端应有着一个温度固定为$T_0$的热库。（可以有多个\carnot 热机，只要它们都有一端连接到$T_0$即可。）\longRadicalTranslation{由于{\xspace\(\ddbar Q\)}是不定号的，\carnot 热机应在两个方向都运行有一系列无穷小循环。}{Since the sign of \(\ddbar Q\) is not specified, the Carnot engine must operate a series of infinitesimal cycles in either direction.}为了在某个阶段向系统输送热量\(\ddbar Q\)，热机须从固定热库中提取热量\(\ddbar Q_R\)。若热量被传递到系统的局部温度为$T$的一个部分，则根据\ref{eq:1.22}式，有
+	\begin{equation}
+		\ddbar Q_R=T_0\frac{\ddbar Q}{T}.
+	\end{equation}
+
+	循环完成后，系统和\carnot 热机恢复到原来的状态。整个过程的净效应是从热库提取了热量\(Q_R=\oint\ddbar Q_R\)并将其转化为外部功$W$。功\(W=Q_R\)是\carnot 热机所做的功与系统在整个循环中所做的功之和。根据第二定律的\kelvin 表述，\(Q_R=W\leq 0\)，也就是说
+	\begin{equation}\label{eq:1.24}
+		T_0\oint\frac{\ddbar Q}{T}\leq 0,
+		\quad\implies\quad
+		\oint\frac{\dd Q}{T}\leq 0,
+	\end{equation}
+	其中箭头成立是因为\(T_0>0\)。注意，\ref{eq:1.24}式中的$T$所指的是对能在整个循环中定义出温度的那些准静态过程而言的系统整体的温度。否则，它就仅是\carnot 热机的存放部分热量的地方（比如说，在系统的边界处）的局部温度。
+
+	\clausius 定理的一些\emph{后果}：
+
+	\begin{enumerate}
+		\item 对于可逆循环 \(\displaystyle\oint\ddbar Q_{{可逆}}/T=0\) ，由于对反向循环有 \(\ddbar Q_{可逆}\to-\ddbar Q_{可逆}\) ，于是从上述定理可知 \(\ddbar Q_{可逆}/T\) 既非负又非正，即，为零。这个结果意味着任意两点$A$和$B$之间的积分 \(\ddbar Q_{可逆}/T\) 与路径无关，因为对于两条路径 (1) 和 (2) 有
+		\begin{equation}\label{eq:1.25}
+			\bigint_A^B\frac{\ddbar Q_{可逆}^{(1)}}{T_1}+\bigint_B^A\frac{\ddbar Q_{可逆}^{(2)}}{T_2}=0,
+			\quad\implies\quad
+			\bigint_B^A\frac{\ddbar Q_{可逆}^{(1)}}{T_1}=\bigint_B^A\frac{\ddbar Q_{可逆}^{(2)}}{T_2}.
+		\end{equation}
+		% Graphics
+		\item 我们可以用\ref{eq:1.25}构造出另一个状态函数，\termIntroduce{熵}$S$。由于该积分与路径无关而仅依赖于两端点，我们可设定
+		\begin{equation}\label{eq:1.26}
+			S(B)-S(A)\equiv\bigint_A^B\frac{\ddbar Q_{可逆}}{T}.
+		\end{equation}
+		对于可逆过程，我们现在可以用\(\ddbar Q_{可逆}=T\dd S\)来计算热量。这允许我们根据$S$为常量的条件来为一般性的（多变量的）系统构造绝热线。
+		注意，\ref{eq:1.26}式所定义的熵仍可相差一个\shortRadicalTranslation{全局}{overall}常量。
+		\item 对于一个可逆的（从而也是准静态的）转换，\(\ddbar Q=T\dd S\)、\(\ddbar W=\sum_iJ_i\dd x_i\)以及第一定律给出
+		\begin{equation}\label{eq:1.27}
+			\dd E=\ddbar Q+\ddbar W=T\dd S+\sum_iJ_i\dd x_i.
+		\end{equation}
+		我们可以看到$S,T$表现为一对共轭变量，$S$扮演位移而$T$则是对应的力。\longRadicalTranslation{这一观察使得我们在力学与热交换上的对应更加精妙，尽管我们应牢记温度不同于它在力学上的类比——温度是恒正的。}{This identification
+		allows us to make the correspondence between mechanical and thermal exchanges more precise, although we should keep in mind that unlike its mechanical analog, temperature is always positive.}
+		尽管为得到\ref{eq:1.27}式我们须诉诸于可逆转换，但值得强调的是此式是状态函数间的关系。
+		\ref{eq:1.27}式可能是最基础而有用的热力学恒等式。
+		\item 也可从\ref{eq:1.27}式得知描述热力学系统所需的\emph{独立变量}的数目。
+		假使有$n$种方法来对一个系统做功，它们由$n$个共轭对\((J_i,x_i)\)来表示，那么就需要$n+1$个独立坐标来描述该系统。（忽略了力学坐标间的可能的约束。）
+		例如选择\((E,\{x_i\})\)为坐标，由\ref{eq:1.27}式就有
+		\begin{equation}
+			\left.\frac{\pd S}{\pd E}\right|_{\mathbf x}=\frac{1}{T},
+			\qquad
+			\left.\frac{\pd S}{\pd x_i}\right|_{E,x_{j\neq i}}=-\frac{J_i}{T}.
+		\end{equation}
+		（其中\(\mathbf x, \mathbf J\)是参量集\(\{x_i\},\{J_i\}\)的简记。）
+		\item 考虑一个由$A$至$B$的不可逆变化。用一个由$B$返回至$A$的可逆路径来构成完整循环，于是就有
+		\begin{equation}
+			\bigint_A^B\frac{\ddbar Q}{T}+\bigint_B^A\frac{\ddbar Q_{可逆}}{T}\leq 0,
+			\quad\implies\quad
+			\bigint_A^B\frac{\ddbar Q}{T}\leq S(B)-S(A).
+		\end{equation}
+		用微分的形式来表述的话，这意味着对于任何转换都有\(\dd S\geq \ddbar Q/T\)。特别地，现在设想绝热地隔离了多个子系统，每个子系统各自最初都处于平衡态。随着它们达到联合平衡状态，由于净值\(\ddbar Q=0\)，我们必然有\(S\geq0\)。于是，由于自发的内交换至多能增大$S$而已，一个绝热系统在平衡状态下达到其熵的最大值。熵增加的方向故而给出了时间箭头与达到平衡态的路径。
+		这在力学上的类比是：在表面上放置一个质点，而重力提供着一个向下的力，随着各种约束被移除，粒子将在\shortRadicalTranslation{高度更低的位置}{locations of decreasing height}安定下来。因此，有关熵增的说法并不比观察到物体在重力作用下倾向于下落这事更神秘！
+	\end{enumerate}
+
+
 
 \section{接近平衡态与热力学势}
 \section{一些有用的数学结果}
